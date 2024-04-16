@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import Swal from "sweetalert2";
 
 const ContestForm = () => {
   const {
@@ -12,7 +13,7 @@ const ContestForm = () => {
 
   const handleAnswerSubmit = async (event) => {
     event.preventDefault();
-console.log(event);
+    console.log(event);
     try {
       const response = await fetch("your_api_url", {
         method: "POST",
@@ -21,8 +22,6 @@ console.log(event);
         },
         body: JSON.stringify(formData),
       });
-
-      // Handle response if needed
       console.log("Form submitted successfully!", response);
     } catch (error) {
       console.error("Error submitting form:", error);
@@ -36,6 +35,46 @@ console.log(event);
 
   const onSubmit = (data) => {
     console.log(data);
+    const {
+      name,
+      email,
+      number,
+      gender,
+      division,
+      district,
+      upazila,
+      zip,
+      instituteName,
+    } = data;
+    const addData = {
+      name,
+      email,
+      number,
+      gender,
+      division,
+      district,
+      upazila,
+      zip,
+      instituteName,
+    };
+    fetch("", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(addData),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.data.insertedId) {
+          Swal.fire({
+            showConfirmButton: false,
+            timer: 1500,
+            title: "Your Data Stored",
+            icon: "success",
+          });
+        }
+      });
   };
 
   return (
@@ -154,7 +193,9 @@ console.log(event);
             </div>
 
             <div className="form-control">
-              <label className="label"></label>
+              <label className="label">
+                <h1>Write a program to swap two numbers in C++</h1>
+              </label>
               <textarea
                 name="answer"
                 value={formData.answer}
@@ -162,7 +203,9 @@ console.log(event);
                 placeholder="Enter your answer"
                 className="textarea textarea-bordered"
               />
-              <button onClick={handleAnswerSubmit} className="btn btn-warning">submit answer</button>
+              <button onClick={handleAnswerSubmit} className="btn btn-warning">
+                submit answer
+              </button>
             </div>
             <div className="form-control mt-1">
               <button disabled className="btn btn-primary">
