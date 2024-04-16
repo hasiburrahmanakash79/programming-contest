@@ -1,6 +1,7 @@
-import { useState } from "react";
+// import { useState } from "react";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
+import ExampleComponent from "../Api/ExampleComponent";
 
 const ContestForm = () => {
   const {
@@ -9,29 +10,29 @@ const ContestForm = () => {
     formState: { errors },
   } = useForm();
 
-  const [formData, setFormData] = useState({ answer: "" });
+  // const [formData, setFormData] = useState({ answer: "" });
 
-  const handleAnswerSubmit = async (event) => {
-    event.preventDefault();
-    console.log(event);
-    try {
-      const response = await fetch("your_api_url", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
-      console.log("Form submitted successfully!", response);
-    } catch (error) {
-      console.error("Error submitting form:", error);
-    }
-  };
+  // const handleAnswerSubmit = async (event) => {
+  //   event.preventDefault();
+  //   console.log(event);
+  //   try {
+  //     const response = await fetch("your_api_url", {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify(formData),
+  //     });
+  //     console.log("Form submitted successfully!", response);
+  //   } catch (error) {
+  //     console.error("Error submitting form:", error);
+  //   }
+  // };
 
-  const handleInputChange = (event) => {
-    const { name, value } = event.target;
-    setFormData({ ...formData, [name]: value });
-  };
+  // const handleInputChange = (event) => {
+  //   const { name, value } = event.target;
+  //   setFormData({ ...formData, [name]: value });
+  // };
 
   const onSubmit = (data) => {
     console.log(data);
@@ -79,7 +80,7 @@ const ContestForm = () => {
 
   return (
     <>
-      <h1 className="text-4xl text-primary font-bold">Programming contest</h1>
+      <h1 className="text-4xl text-primary font-bold">Programming Contest</h1>
       <div className="hero container mx-auto">
         <div className="md:flex justify-between items-center gap-12 px-3">
           <form onSubmit={handleSubmit(onSubmit)} className="card-body">
@@ -191,7 +192,9 @@ const ContestForm = () => {
                 className="input input-bordered"
               />
             </div>
+            {/* <ExampleComponent /> */}
 
+{/* 
             <div className="form-control">
               <label className="label">
                 <h1>Write a program to swap two numbers in C++</h1>
@@ -206,7 +209,7 @@ const ContestForm = () => {
               <button onClick={handleAnswerSubmit} className="btn btn-warning">
                 submit answer
               </button>
-            </div>
+            </div> */}
             <div className="form-control mt-1">
               <button disabled className="btn btn-primary">
                 Form Submit
