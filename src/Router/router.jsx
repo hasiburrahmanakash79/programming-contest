@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import ContestForm from "../ContestForm/ContestForm";
-import App from "../App";
+import SignIn from "../Login/SignIn";
+import SignUp from "../Login/SignUp";
 
 const router = createBrowserRouter([
   {
@@ -9,7 +10,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/adminLog",
-    element: <App/>,
+    element: <SignIn/>,
+  },
+  {
+    path: "/adminRegi",
+    element: <SignUp/>,
   },
 ]);
 
