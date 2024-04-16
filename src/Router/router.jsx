@@ -2,6 +2,8 @@ import { createBrowserRouter } from "react-router-dom";
 import ContestForm from "../ContestForm/ContestForm";
 import SignIn from "../Login/SignIn";
 import SignUp from "../Login/SignUp";
+import Home from "../AdminDashboard/Home";
+import AdminRoute from "./AdminRoute";
 
 const router = createBrowserRouter([
   {
@@ -16,6 +18,10 @@ const router = createBrowserRouter([
     path: "/adminRegi",
     element: <SignUp/>,
   },
+  {
+    path: "/adminHome",
+    element: <AdminRoute><Home/></AdminRoute>
+  }
 ]);
 
 export default router;

@@ -7,18 +7,17 @@ const SignUp = () => {
     const [error, setError] = useState('')
   const navigate = useNavigate();
   const location = useLocation();
-  const from = location.state?.from?.pathname || "/";
+  const from = location.state?.from?.pathname || "/adminHome";
 
   const {createUser } = useContext(AuthContext)
 
   const handleSignUp = (event) =>{
     event.preventDefault()
     const form = event.target;
-    const name = form.name.value;
+    const displayName = form.displayName.value;
     const email = form.email.value;
     const password = form.password.value;
-    const photo = form.photo.value;
-    console.log(name, email, password, photo);
+    console.log(displayName, email, password);
 
     createUser(email, password)
     .then(result =>{
@@ -42,7 +41,7 @@ const SignUp = () => {
               </label>
               <input
                 type="text"
-                name="name"
+                name="displayName"
                 placeholder="Enter your name"
                 className="input input-bordered"
                 required
@@ -68,18 +67,6 @@ const SignUp = () => {
                 type="password"
                 name="password"
                 placeholder="enter your password"
-                className="input input-bordered"
-                required
-              />
-            </div>
-            <div className="form-control">
-              <label className="label">
-                <span className="label-text">Photo URL</span>
-              </label>
-              <input
-                type="text"
-                name="photo"
-                placeholder="Photo url"
                 className="input input-bordered"
                 required
               />

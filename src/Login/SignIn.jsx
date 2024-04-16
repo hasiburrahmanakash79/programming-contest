@@ -11,7 +11,7 @@ const SignIn = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const from = location.state?.from?.pathname || "/";
+  const from = location.state?.from?.pathname || "/adminHome";
 
   //Email password
   const handleLogIn = (event) => {
