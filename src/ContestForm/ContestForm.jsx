@@ -1,7 +1,6 @@
 // import { useState } from "react";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
-import ExampleComponent from "../Api/ExampleComponent";
 
 const ContestForm = () => {
   const {
@@ -194,22 +193,6 @@ const ContestForm = () => {
             </div>
             {/* <ExampleComponent /> */}
 
-{/* 
-            <div className="form-control">
-              <label className="label">
-                <h1>Write a program to swap two numbers in C++</h1>
-              </label>
-              <textarea
-                name="answer"
-                value={formData.answer}
-                onChange={handleInputChange}
-                placeholder="Enter your answer"
-                className="textarea textarea-bordered"
-              />
-              <button onClick={handleAnswerSubmit} className="btn btn-warning">
-                submit answer
-              </button>
-            </div> */}
             <div className="form-control mt-1">
               <button disabled className="btn btn-primary">
                 Form Submit
